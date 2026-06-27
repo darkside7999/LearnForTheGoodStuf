@@ -1,0 +1,24 @@
+{
+  "name": "learnforthegoodstuf",
+  "version": "1.0.0",
+  "description": "App estilo Instagram de noticias cortas generadas/curadas con IA. Proyecto para aprender.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "seed": "node src/db/seed.js"
+  },
+  "keywords": ["noticias", "ia", "aprender", "express", "sqlite"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.0",
+    "dotenv": "^17.2.0",
+    "express": "^5.2.1",
+    "pdfkit": "^0.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

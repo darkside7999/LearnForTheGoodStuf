@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnForTheGoodStuf · Noticias cortas</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <!-- Barra superior -->
+    <header class="topbar">
+      <h1 class="brand">📰 LearnForTheGoodStuf</h1>
+      <div class="topbar-right">
+        <button id="filter-toggle" class="chip-btn" title="Filtrar por categoría">
+          Categorías
+        </button>
+        <span id="stats-badge" class="stats-badge" title="Sin leer / total"></span>
+      </div>
+    </header>
+
+    <!-- Fila de chips de categorías (se llena desde JS) -->
+    <nav id="category-bar" class="category-bar hidden"></nav>
+
+    <!-- Feed principal: aquí se insertan las tarjetas de noticias -->
+    <main id="feed" class="feed" aria-live="polite"></main>
+
+    <!-- Centinela: cuando entra en pantalla, cargamos más (scroll infinito) -->
+    <div id="sentinel" class="sentinel"></div>
+
+    <!-- Mensajes de estado (cargando, vacío, "estás al día") -->
+    <div id="status" class="status"></div>
+
+    <!-- Módulos JS (orden importa: api -> share -> post -> feed) -->
+    <script type="module" src="/js/api.js"></script>
+    <script type="module" src="/js/share.js"></script>
+    <script type="module" src="/js/post.js"></script>
+    <script type="module" src="/js/feed.js"></script>
+  </body>
+</html>

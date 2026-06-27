@@ -1,0 +1,329 @@
+/* styles.css — estilo del feed vertical estilo Instagram. */
+
+:root {
+  --bg: #fafafa;
+  --card: #ffffff;
+  --border: #e6e6e6;
+  --text: #1a1a1a;
+  --muted: #8a8a8a;
+  --accent: #e1306c; /* rosa estilo Instagram para el like */
+  --link: #3366cc;
+  --chip: #f0f0f0;
+  --max-width: 620px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* --- Barra superior --- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stats-badge {
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: var(--chip);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.chip-btn {
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip-btn:hover {
+  background: var(--chip);
+}
+
+/* --- Barra de categorías --- */
+.category-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 10px 16px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 53px;
+  z-index: 9;
+}
+.category-bar.hidden {
+  display: none;
+}
+.cat-chip {
+  flex: 0 0 auto;
+  font-size: 0.82rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cat-chip.active {
+  background: var(--text);
+  color: #fff;
+  border-color: var(--text);
+}
+
+/* --- Feed --- */
+.feed {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* --- Tarjeta de noticia --- */
+.post {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.post-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.post-cat {
+  background: var(--chip);
+  color: var(--text);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.post-kind {
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.post-kind.real {
+  color: #1a7f37;
+  border-color: #b7e0c2;
+  background: #eafbef;
+}
+.post-time {
+  margin-left: auto;
+}
+
+.post-title {
+  margin: 10px 16px 6px;
+  font-size: 1.18rem;
+  line-height: 1.3;
+}
+
+.post-body {
+  margin: 0 16px;
+  color: #2a2a2a;
+  white-space: pre-wrap; /* respeta los saltos de línea del texto */
+}
+
+.post-tags {
+  margin: 10px 16px 0;
+  font-size: 0.85rem;
+  color: var(--link);
+}
+
+.post-source {
+  margin: 8px 16px 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.post-source a {
+  color: var(--link);
+}
+
+/* Barra de acciones */
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  margin-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.action:hover {
+  background: var(--chip);
+}
+.action.liked {
+  color: var(--accent);
+  font-weight: 600;
+}
+.action .icon {
+  font-size: 1.1rem;
+}
+
+/* Panel de comentarios */
+.comments {
+  border-top: 1px solid var(--border);
+  padding: 12px 16px;
+  display: none;
+}
+.comments.open {
+  display: block;
+}
+.comment {
+  font-size: 0.9rem;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border);
+}
+.comment:last-child {
+  border-bottom: none;
+}
+.comment .tag {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 6px;
+}
+.comment .tag.mejora {
+  color: #b8860b;
+}
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+.comment-form textarea {
+  width: 100%;
+  min-height: 56px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  font: inherit;
+}
+.comment-form-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.comment-form select,
+.comment-form button {
+  font: inherit;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+}
+.comment-form button {
+  background: var(--text);
+  color: #fff;
+  border-color: var(--text);
+}
+
+/* Menú de compartir */
+.share-menu {
+  border-top: 1px solid var(--border);
+  padding: 10px 16px;
+  display: none;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.share-menu.open {
+  display: flex;
+}
+.share-menu button,
+.share-menu a {
+  font: inherit;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.share-menu button:hover,
+.share-menu a:hover {
+  background: var(--chip);
+}
+
+/* Estado leído: un punto sutil */
+.post.read .post-head::before {
+  content: '✓ leído';
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+/* Mensajes de estado */
+.sentinel {
+  height: 1px;
+}
+.status {
+  max-width: var(--max-width);
+  margin: 0 auto 40px;
+  padding: 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.status .big {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.hidden {
+  display: none;
+}
