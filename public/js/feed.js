@@ -32,7 +32,7 @@ async function loadMore() {
     for (const post of posts) {
       const card = renderPost(post);
       applyFilterToCard(card, post);
-      feedEl.appendChild(card);
+      feedEl.insertBefore(card, sentinel); // las noticias van ANTES del centinela
       readObserver.observe(card); // empezar a vigilar si se lee
     }
 
@@ -55,7 +55,9 @@ const sentinelObserver = new IntersectionObserver(
   (entries) => {
     if (entries.some((e) => e.isIntersecting)) loadMore();
   },
-  { rootMargin: '400px' } // empieza a cargar un poco antes de llegar al final
+  // root = #feed (es quien scrollea). rootMargin grande para precargar la
+  // siguiente noticia mientras estás leyendo la actual, sin pantallas en blanco.
+  { root: feedEl, rootMargin: '1500px' }
 );
 sentinelObserver.observe(sentinel);
 
@@ -83,7 +85,9 @@ const readObserver = new IntersectionObserver(
       }
     }
   },
-  { threshold: [0, 0.5, 1] }
+  // root = #feed (el contenedor que scrollea). Cuando una noticia ocupa la
+  // pantalla (ratio alto) y se mantiene, la marcamos leída.
+  { root: feedEl, threshold: [0, 0.5, 1] }
 );
 
 async function markRead(card, id) {
@@ -111,7 +115,8 @@ async function refreshStatus() {
     const stats = await api.stats();
     statsBadge.textContent = `${stats.unread} sin leer · ${stats.total} total`;
 
-    if (state.done && feedEl.children.length === 0) {
+    const postCount = feedEl.querySelectorAll('.post').length;
+    if (state.done && postCount === 0) {
       setStatus(
         '<span class="big">📭</span>No hay noticias todavía.' +
           (stats.generationEnabled
@@ -158,8 +163,8 @@ function setCategory(slug) {
   for (const chip of categoryBar.children) {
     chip.classList.toggle('active', (chip.dataset.slug || null) === slug);
   }
-  // Re-aplica el filtro a todas las tarjetas ya cargadas.
-  for (const card of feedEl.children) {
+  // Re-aplica el filtro a todas las noticias ya cargadas.
+  for (const card of feedEl.querySelectorAll('.post')) {
     const cardSlug = card.dataset.category;
     card.classList.toggle('hidden', slug !== null && cardSlug !== slug);
   }

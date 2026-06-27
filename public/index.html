@@ -21,13 +21,14 @@
     <!-- Fila de chips de categorías (se llena desde JS) -->
     <nav id="category-bar" class="category-bar hidden"></nav>
 
-    <!-- Feed principal: aquí se insertan las tarjetas de noticias -->
-    <main id="feed" class="feed" aria-live="polite"></main>
+    <!-- Feed principal: cada noticia ocupa toda la pantalla (estilo Reels).
+         El scroll-snap hace que cada gesto salte de una en una. -->
+    <main id="feed" class="feed" aria-live="polite">
+      <!-- Centinela al final: cuando se acerca, cargamos más (scroll infinito) -->
+      <div id="sentinel" class="sentinel"></div>
+    </main>
 
-    <!-- Centinela: cuando entra en pantalla, cargamos más (scroll infinito) -->
-    <div id="sentinel" class="sentinel"></div>
-
-    <!-- Mensajes de estado (cargando, vacío, "estás al día") -->
+    <!-- Mensajes de estado flotantes (cargando, vacío, "estás al día") -->
     <div id="status" class="status"></div>
 
     <!-- Módulos JS (orden importa: api -> share -> post -> feed) -->

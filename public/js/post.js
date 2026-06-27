@@ -11,22 +11,32 @@ export function renderPost(post) {
   card.className = 'post' + (post.read ? ' read' : '');
   card.dataset.id = post.id;
 
-  card.appendChild(buildHead(post));
-  card.appendChild(el('h2', 'post-title', post.title));
-  card.appendChild(el('div', 'post-body', post.body));
+  // Zona desplazable: aquí va el texto (que scrollea dentro del slide si es largo).
+  const scroll = document.createElement('div');
+  scroll.className = 'post-scroll';
+  scroll.appendChild(buildHead(post));
+  scroll.appendChild(el('h2', 'post-title', post.title));
+  scroll.appendChild(el('div', 'post-body', post.body));
 
   if (post.hashtags?.length) {
-    card.appendChild(el('div', 'post-tags', post.hashtags.map((t) => '#' + t).join(' ')));
+    scroll.appendChild(
+      el('div', 'post-tags', post.hashtags.map((t) => '#' + t).join(' '))
+    );
   }
   if (post.source_url) {
     const src = document.createElement('div');
     src.className = 'post-source';
-    src.innerHTML = 'Fuente: <a href="' + escapeAttr(post.source_url) +
-      '" target="_blank" rel="noopener">' + escapeHtml(post.source_url) + '</a>';
-    card.appendChild(src);
+    src.innerHTML =
+      'Fuente: <a href="' +
+      escapeAttr(post.source_url) +
+      '" target="_blank" rel="noopener">' +
+      escapeHtml(post.source_url) +
+      '</a>';
+    scroll.appendChild(src);
   }
+  card.appendChild(scroll);
 
-  // Comentarios y menú de compartir (ocultos hasta que se pulsa).
+  // Comentarios y menú de compartir (hojas que suben desde abajo al pulsar).
   const comments = buildCommentsPanel(post);
   const shareMenu = buildShareMenu(post);
 
