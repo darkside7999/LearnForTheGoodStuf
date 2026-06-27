@@ -8,7 +8,10 @@
 import { DatabaseSync } from 'node:sqlite';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { config } from '../config.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Aseguramos que exista la carpeta data/ antes de abrir el archivo.
 fs.mkdirSync(path.dirname(config.dbPath), { recursive: true });
@@ -20,7 +23,7 @@ export const db = new DatabaseSync(config.dbPath);
 db.exec('PRAGMA foreign_keys = ON;');
 
 // Aplica el esquema. CREATE TABLE IF NOT EXISTS = seguro de repetir.
-const schemaPath = path.join(path.dirname(new URL(import.meta.url).pathname), 'schema.sql');
+const schemaPath = path.join(__dirname, 'schema.sql');
 const schemaSql = fs.readFileSync(schemaPath, 'utf8');
 db.exec(schemaSql);
 

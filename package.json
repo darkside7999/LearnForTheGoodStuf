@@ -12,6 +12,9 @@
   "keywords": ["noticias", "ia", "aprender", "express", "sqlite"],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.0",
     "dotenv": "^17.2.0",

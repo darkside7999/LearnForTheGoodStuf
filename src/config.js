@@ -21,7 +21,11 @@ export const config = {
   host: '0.0.0.0',
 
   // --- Rutas de archivos ---
-  dbPath: path.join(ROOT_DIR, 'data', 'app.db'),
+  // En Vercel (serverless) el único sitio escribible es /tmp, y es temporal
+  // (se reinicia entre arranques): perfecto para una demo. En local usamos data/.
+  dbPath: process.env.VERCEL
+    ? '/tmp/app.db'
+    : path.join(ROOT_DIR, 'data', 'app.db'),
   publicDir: path.join(ROOT_DIR, 'public'),
 
   // --- IA ---

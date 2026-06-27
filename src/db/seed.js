@@ -79,6 +79,129 @@ const SAMPLE_POSTS = [
     read_minutes: 1,
     hashtags: ['curiosidades', 'animales', 'oceano'],
   },
+  {
+    title: '¿Por qué bostezamos (y por qué se contagia)?',
+    body:
+      'Bostezar no sirve solo para "coger aire". Una de las hipótesis con más ' +
+      'apoyo es que ayuda a enfriar el cerebro: al abrir mucho la mandíbula y ' +
+      'tomar aire, refrescamos la sangre que llega a la cabeza.\n\nLo más curioso ' +
+      'es el contagio. Ver, oír o incluso leer sobre bostezos puede provocarlo ' +
+      '(¿ya te dieron ganas?). Se cree que está ligado a la empatía: cuanto más ' +
+      'cercana te resulta una persona, más fácil es que su bostezo te "salte".',
+    category_slug: 'ciencia',
+    kind: 'generado',
+    source_note: 'Generado por IA',
+    read_minutes: 1,
+    hashtags: ['ciencia', 'cuerpo', 'cerebro'],
+  },
+  {
+    title: 'La contraseña más usada del mundo sigue siendo "123456"',
+    body:
+      'Año tras año, los análisis de filtraciones de datos coinciden: millones ' +
+      'de personas siguen usando "123456", "password" o "qwerty". Un atacante ' +
+      'prueba estas primero, así que una cuenta con esa clave cae en segundos.\n\n' +
+      'El mejor truco no es inventar algo "raro", sino algo LARGO: una frase de ' +
+      'cuatro palabras al azar ("caballo-grapa-batería-correcta") es más difícil ' +
+      'de romper que "P@ssw0rd!" y más fácil de recordar. Y usar un gestor de ' +
+      'contraseñas evita repetirlas.',
+    category_slug: 'tecnologia',
+    kind: 'generado',
+    source_note: 'Generado por IA',
+    read_minutes: 1.5,
+    hashtags: ['tecnologia', 'seguridad', 'internet'],
+  },
+  {
+    title: 'El origen de la palabra "salario" está en la sal',
+    body:
+      'En la antigua Roma, la sal era tan valiosa que servía para conservar la ' +
+      'comida cuando no había neveras. Existe la idea popular de que a los ' +
+      'soldados se les pagaba en sal, o se les daba dinero para comprarla: ese ' +
+      '"salarium" habría dado origen a nuestra palabra "salario".\n\nLos ' +
+      'historiadores discuten los detalles, pero el vínculo entre la sal y el ' +
+      'valor quedó en el idioma: por eso decimos que alguien "se gana el pan" ' +
+      '—o la sal— con su trabajo.',
+    category_slug: 'historia',
+    kind: 'generado',
+    source_note: 'Generado por IA',
+    read_minutes: 1,
+    hashtags: ['historia', 'roma', 'lenguaje'],
+  },
+  {
+    title: 'Por qué un penalti es tan difícil de parar',
+    body:
+      'El balón tarda unos 0,4 segundos en viajar desde el punto de penalti hasta ' +
+      'la portería. El portero necesita más tiempo que eso solo para reaccionar y ' +
+      'lanzarse, así que casi siempre tiene que ADIVINAR el lado antes de que el ' +
+      'jugador chute.\n\nPor eso muchos porteros estudian vídeos: buscan pistas en ' +
+      'la carrera, la cadera o el pie de apoyo del lanzador. Y por eso un penalti ' +
+      'bien colocado, pegado al palo, es prácticamente imparable aunque el portero ' +
+      'acierte el lado.',
+    category_slug: 'deportes',
+    kind: 'generado',
+    source_note: 'Generado por IA',
+    read_minutes: 1,
+    hashtags: ['deportes', 'futbol', 'ciencia'],
+  },
+  {
+    title: 'El cuadro que se hizo famoso por ser robado',
+    body:
+      '"La Gioconda" de Leonardo da Vinci no siempre fue la pintura más famosa del ' +
+      'mundo. Su salto a la fama mundial llegó en 1911, cuando un empleado del ' +
+      'Louvre la robó y estuvo desaparecida dos años.\n\nLos periódicos de medio ' +
+      'planeta publicaron su imagen, la gente hacía cola para ver el hueco vacío ' +
+      'en la pared, y cuando apareció se convirtió en un icono. A veces la fama no ' +
+      'viene solo del talento, sino de una buena historia.',
+    category_slug: 'cultura',
+    kind: 'generado',
+    source_note: 'Generado por IA',
+    read_minutes: 1.5,
+    hashtags: ['cultura', 'arte', 'historia'],
+  },
+  {
+    title: 'Hay más estrellas que granos de arena en la Tierra',
+    body:
+      'Suena a exageración, pero los cálculos coinciden: el número de estrellas en ' +
+      'el universo observable supera al de todos los granos de arena de todas las ' +
+      'playas y desiertos del planeta.\n\nSolo nuestra galaxia, la Vía Láctea, ' +
+      'tiene cientos de miles de millones de estrellas, y hay billones de galaxias. ' +
+      'Cuando miras el cielo nocturno, apenas ves unas pocas miles a simple vista: ' +
+      'una mínima esquina de un número casi imposible de imaginar.',
+    category_slug: 'ciencia',
+    kind: 'generado',
+    source_note: 'Generado por IA',
+    read_minutes: 1,
+    hashtags: ['ciencia', 'espacio', 'astronomia'],
+  },
+  {
+    title: 'El primer "ordenador" tenía engranajes y 2000 años',
+    body:
+      'En 1901, unos buzos encontraron en un naufragio cerca de la isla griega de ' +
+      'Anticitera una masa de bronce corroído. Décadas después se descubrió que era ' +
+      'una máquina con decenas de engranajes de precisión.\n\nEl "mecanismo de ' +
+      'Anticitera" servía para predecir posiciones del Sol, la Luna y los planetas, ' +
+      'e incluso eclipses. Nadie volvió a fabricar algo tan complejo hasta más de ' +
+      'mil años después: una pieza de tecnología adelantada a su tiempo.',
+    category_slug: 'historia',
+    kind: 'generado',
+    source_note: 'Generado por IA',
+    read_minutes: 1.5,
+    hashtags: ['historia', 'tecnologia', 'grecia'],
+  },
+  {
+    title: 'Los plátanos son ligeramente radiactivos (y no pasa nada)',
+    body:
+      'Los plátanos contienen mucho potasio, y una pequeña parte de ese potasio es ' +
+      'un isótopo naturalmente radiactivo. De ahí viene una unidad informal y ' +
+      'simpática: la "dosis equivalente de plátano".\n\nNo te preocupes: tu cuerpo ' +
+      'regula el potasio constantemente, y tendrías que comer millones de plátanos ' +
+      'de golpe para que importara. Sirve para entender que la radiación está en ' +
+      'todas partes, en dosis diminutas e inofensivas.',
+    category_slug: 'curiosidades',
+    kind: 'generado',
+    source_note: 'Generado por IA',
+    read_minutes: 1,
+    hashtags: ['curiosidades', 'ciencia', 'comida'],
+  },
 ];
 
 export function seedSamplePosts() {
