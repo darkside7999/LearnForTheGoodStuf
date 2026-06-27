@@ -141,5 +141,7 @@ vite.config.ts.timestamp-*
 # App data (SQLite)
 data/*.db
 data/*.db-*
+
+# Vercel CLI (config local y secretos), sin tocar .env.example
 .vercel
-.env*
+.env*.local
