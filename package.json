@@ -5,6 +5,7 @@
   "type": "module",
   "main": "src/server.js",
   "scripts": {
+    "setup": "bash scripts/setup.sh",
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "seed": "node src/db/seed.js"
